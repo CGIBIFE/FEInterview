@@ -1,18 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import PostCard from './components/postCard'
 class App extends Component {
-  render() {
+    constructor(){
+        super()
+        this.state ={
+            post:[],
+            filteredPosts:[]
+        }
+    }
+    componentDidMount() {
+        fetch('Api/data.json').then((data) => {
+            return data.json()
+        }).then((json) => {
+            this.setState({post:json})
+        })
+    }
+
+    showRetweetsOnly = () => {
+        console.log()
+    }
+
+    render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+          <div className="leftPanel">
+              <h3>Tweet Filters</h3>
+              <div className="searchBox"> <input placeholder="@name-handel"/></div>
+              <h4>Show only</h4>
+              <div className="radioButton"><input type="radio" id="contactChoice2" name="contact" value="phone" /><label htmlFor="contactChoice2">All tweets</label></div>
+              <div className="radioButton"><input type="radio" id="contactChoice1" name="contact" value="email" /><label htmlFor="contactChoice1">Retweeted tweets</label></div>
+          </div>
+          <div className="content">
+          {this.state.post.map(post => (
+              <PostCard text={post.text} key={post.id} user={post.user} userMentioned={post.entities.user_mentions}/>
+          ))}
+          </div>
       </div>
     );
   }

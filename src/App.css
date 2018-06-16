@@ -1,28 +1,88 @@
-.App {
-  text-align: center;
+.container {
+  width: 980px;
+  min-height: 100vh;
+  margin: auto;
+  box-shadow: dimgrey;
+  padding: 1.5rem;
+  display: flex;
+  justify-content:space-between;
+}
+.content {
+  width: 68%;
+  background: #fff;
+  border-radius:.4rem;
+}
+.leftPanel{
+  width: 25%;
+  background: #fff;
+  border-radius:.4rem;
+  max-height: 50vh;
+  padding: 2%;
+}
+.leftPanel h3{
+  display: flex;
+}
+.leftPanel h4{
+  display: flex;
+}
+.searchBox{
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.tweet p {
+  margin:.5rem 3.5rem;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.searchBox input{
+  width: 80%;
+  height:2rem;
+  border-radius: 1rem;
+  border: thin solid #2B6083;
+  outline: none;
+  padding-left: 0.7rem;
+  font-size: 1rem;
 }
-
-.App-title {
-  font-size: 1.5em;
+.postCard{
+  padding: 1.5rem;
+  border-bottom: thin solid #c5c5c5;
 }
-
-.App-intro {
-  font-size: large;
+.postCard:last-child{
+  border-bottom: none;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.retweet{
+  font-size: 10px;
+  color: #222;
+  margin-bottom: 1.5rem;
+  display: flex;
+}
+.retweet a{
+  text-decoration: none;
+  padding-right: .3rem;
+  color: #222;
+  font-weight: bold;
+}
+.profilePic{
+  width:45px;
+  height: 45px;
+  border-radius: 22.5px;
+  margin-right: .5rem;
+}
+.user-profile a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #222222;
+  font-weight: bold;
+  font-size: 14px;
+}
+.user-profile{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.radioButton{
+  padding: .5rem;
+  font-size: 14px;
+}
+.radioButton label{
+  margin-left: .3rem;
 }

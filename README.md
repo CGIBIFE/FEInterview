@@ -9,7 +9,7 @@ Please go through the storyboard for more detail on code test
  
  ## Requirement
     
-    Creating UI from tweeter feed JSON similar to below attached screenshot
+    Creating UI from 'tweeter feed JSON', Similar to below attached screenshot
     
 ![Screenshot](SampleScreen.png)
 

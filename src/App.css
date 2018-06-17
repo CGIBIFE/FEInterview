@@ -11,6 +11,7 @@
   width: 68%;
   background: #fff;
   border-radius:.4rem;
+  border: thin solid #a3c5dc;
 }
 .leftPanel{
   width: 25%;
@@ -53,6 +54,22 @@
   color: #222;
   margin-bottom: 1.5rem;
   display: flex;
+}
+.postCard.retweetPost{
+  background: #e6f0f9;
+}
+.postCard.retweetPost:first-child{
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
+}
+.postCard.retweetPost:last-child{
+  border-bottom-left-radius: .4rem;
+  border-bottom-right-radius: .4rem;
+}
+.retweetPost .tweet{
+  background: #fff;
+  padding: 1rem;
+  border-radius: .4rem;
 }
 .retweet a{
   text-decoration: none;

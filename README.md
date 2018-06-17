@@ -1,29 +1,29 @@
 # FEInterview
 Best of luck for success. 
-Please go through story board for more detail on code test
+Please go through the storyboard for more detail on code test
 
 # StoryBoard
-    Objective of this application is creating UI for tweeter feed from 
-    json with is part of this Repo, Please create your own copy of 
+    The objective of this application is creating UI for tweeter feed from 
+    JSON with is part of this Repo, Please create your own copy of 
     this repo by 'Forking' it.
  
  ## Requirement
     
-    Creating UI from tweeter feed json similar to below attached screenshot
+    Creating UI from tweeter feed JSON similar to below attached screenshot
     
 ![Screenshot](SampleScreen.png)
 
 ### Tweeter feed functionality expectation:
     * Search box to find specific user's tweet 
-    * filter for Retweeted tweets 
+    * Filter for Retweeted tweets 
     * Post per page / Relavent pagination
-    * all' @handels' should be clickable with live links
+    * All' @handels' should be clickable with live links
     * Retweets and tweets should be visually differentiable 
-    * Tweeter users profile pic should be shown as part of tweet
-    * should be responsive for all screens from Mobile Tab Desktop screen
+    * Tweeter users profile pic should be shown as part of the tweet
+    * Should be responsive for all screens from Mobile Tab Desktop screen
     
 ### Delivery expectation:
-    * Should be deployable package, Deployed at any heroku server is added advantage
+    * Should be deployable package, Deployed at any [Heroku server ](http://www.heroku.com) is added advantage
     * Unit test is expected with 70% minimum coverage report and Report should be part of the branch
     * Pull Request from Froked branch to master branch should be created as part of delivery
     
@@ -34,7 +34,7 @@ Please go through story board for more detail on code test
 
 ## Author
     
-    * Arulmozhimanikandan 
+     Arulmozhimanikandan 
 
       
   

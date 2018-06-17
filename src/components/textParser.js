@@ -16,7 +16,7 @@ class TextParser extends React.Component{
 
     render(){
         return (
-            <div>
+            <div >
                 {this.state.RT && <span className="retweet"><a href={`https://twitter.com/${this.state.RT.screen_name}`} >{this.state.RT.name}</a> Retweeted</span>}
                 <div className="tweet">
                     <span className="user-profile"><a href={`https://twitter.com/${this.props.user.screen_name}`} ><img className="profilePic" src={this.props.user.profile_image_url} />{`${this.props.user.name} (@${this.props.user.screen_name})`}</a></span>

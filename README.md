@@ -4,7 +4,7 @@ Please go through the storyboard for more detail on code test
 
 # StoryBoard
     The objective of this application is creating UI for tweeter feed from 
-    JSON with is part of this Repo, Please create your own copy of 
+    JSON which is part of this Repo, Please create your own copy of 
     this repo by 'Forking' it.
  
  ## Requirement

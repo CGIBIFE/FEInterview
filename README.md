@@ -24,7 +24,7 @@ Please go through the storyboard for more detail on code test
     
 ### Delivery expectation:
     * Should be deployable package, Deployed at any [Heroku server ](http://www.heroku.com) is added advantage
-    * Unit test is expected with 70% minimum coverage report and Report should be part of the branch
+    * Unit test is expected with 70% minimum coverage, Report should be pushed as part of the branch
     * Pull Request from Froked branch to master branch should be created as part of delivery
     
     

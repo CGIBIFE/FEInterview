@@ -140,3 +140,7 @@ text-decoration: none;
   color: #222222;
   font-weight: bold;
 }
+.tweetContent a{
+  color: dodgerblue;
+  text-decoration: none;
+}

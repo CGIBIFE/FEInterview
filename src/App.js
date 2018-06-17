@@ -10,6 +10,7 @@ class App extends Component {
             numberOfPages:0,
             currentPage:1,
             maxPageCount:6,
+            test:'',
         }
     }
     componentDidMount() {

@@ -32,10 +32,6 @@ Please go through the storyboard for more detail on code test
     
     This project is licensed under CGI B&I 
 
-## Author
-    
-     Arulmozhimanikandan 
-
       
   
    

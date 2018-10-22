@@ -1,6 +1,5 @@
 
-export class ParseUrl {
-    static NAME: string = 'userFilter';    
+export class ParseUrl { 
     public static Factory() {
         let urls = /(\b(https?|http):\/\/[A-Z0-9+&@#\/%?=~_|!:,.;-]*[-A-Z0-9+&@#\/%=~_|])/gim;
         let handler = /(@\w+)|./gim;

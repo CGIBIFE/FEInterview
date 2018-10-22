@@ -1,7 +1,6 @@
 const jsonData = require('./data.json');
 
 import * as angular from "angular";
-
 export class UserService {
     static NAME: string = 'userService';
     /*istanbul ignore next*/

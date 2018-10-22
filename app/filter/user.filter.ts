@@ -1,6 +1,5 @@
 
-export class CustomFilter { 
-    static NAME: string = 'userFilter';
+export class CustomFilter {
     public static Factory() {
         /*istanbul ignore next*/
         return (input: any, start: any) => {

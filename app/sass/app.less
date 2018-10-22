@@ -95,9 +95,11 @@ h2 {
 	&__innercontent-text {
 		border-bottom: 1px solid #ccc;
 	}
+	&__innercontent-text + .twitter-container__no-items {
+		display: none;
+	}
 
 	&__no-items {
-		display: none;
 		text-align: center;
 	}
 }
@@ -132,8 +134,8 @@ input[type=search] {
 	padding: 4px;
 }
 
-.pagination a:hover, .pagination a:active {
-	background-color: #385F80;
+.active {
+	background-color: #385F80 !important;
 	color: white;
 	border-radius: 50%;
 }

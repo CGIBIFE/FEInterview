@@ -39,8 +39,8 @@ Please go through the storyboard for more detail on code test
     * Tweeter users profile pic should be show as part of tweet - Done
     * Should be responsive for all screens from Mobile Tab - Done
 ## Delivery expectation:
-    *Should be deployable package - Yes used webpack to make it as bundle. Need to deploy on hereoku. 
-    * Unit test is 70% coverage & branch - Done and coverage folder generated during test. 2 test cases are getting failed. Working on it. 
+    *Should be deployable package - Yes used webpack to make it as bundle. Deploy files are available as part Heorku folder. 
+    * Unit test is 70% coverage & branch - Done and coverage folder generated during test run as part of app.
     * PR - Done
 
 ## Run in browser
@@ -50,11 +50,11 @@ Please go through the storyboard for more detail on code test
 ## Things to Highlight
     * Developed using Typescript, Angular 1.6 component support moving towards Angular 2, Web Components
     * WebPack configured to get the deployable version
-    * Jasmine/Karma configured
+    * Jasmine/Karma/Chrome configured
     * Responsive web design using fluid media query used for mobile, tab and browsers
     * Angular Filters, Services, Components are used
     * tslint configured
-    * SASS-LESS used for css
+    * SASS-LESS used for styling
     * Screenshot added for Jamsine coverage, Responsive design, website page
 
     This project is licensed under CGI B&I 

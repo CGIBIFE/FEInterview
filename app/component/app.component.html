@@ -50,10 +50,10 @@
                 <input type="text" id="post" ng-model='pageSize' ng-init="pageSize=$ctrl.pageSize" />
             </div>
 
-            <p>Pages</p>
+            <p>Pages: </p>
             <div class="pagination">
                 <a id="pagination" href="#" ng-disabled="$ctrl.currentPage === 0" ng-repeat="a in $ctrl.getPageNumber($ctrl.getNumberOfPages()) track by $index"
-                    ng-click="!$last ? $ctrl.currentPage=currentPage+1 : $ctrl.currentPage=currentPage-1;active=!active" ng-class="{'active': active}">
+                    ng-click="(!$last ? $ctrl.currentPage=currentPage+1 : $ctrl.currentPage=currentPage-1); $ctrl.toggleClass($index)" ng-class="{active: $index === $ctrl.selectedIndex}">
                             {{$index+1}}
                     </a>
             </div>

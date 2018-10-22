@@ -1,26 +1,39 @@
     import * as angular from "angular";
-    import { IRootScopeService, IHttpBackendService } from "angular";
-    import "angular-mocks";
+    import 'angular-mocks';
     import { UserService } from "./user.services";
     
-    describe("Service", () => {
+    describe("App Service", () => {
     
-        let UserService: UserService;
-        let $rootScope: IRootScopeService;
-        let $httpBackend: IHttpBackendService;
+        let UserService = {
+            getAll() {
 
+            }
+        };
+        let $http: ng.IHttpBackendService;
+        const httpMock = {
+            get() {
+                return {
+                    then() {
+                        // ignore this
+                    }
+                };
+            }
+        };
     
-        beforeEach(angular.mock.module("app"));
+        beforeEach(() => {
+            angular.mock.module('app', ($provide) => {
+                $provide.value('$http', httpMock);
+            });
     
-        beforeEach(inject((_service_, _$rootScope_, _$httpBackend_) => {
-            UserService = _service_;
-            $rootScope = _$rootScope_;
-            $httpBackend = _$httpBackend_;
-        }));
+            inject(($injector) => {
+                $http = $injector.get('$http');
+            });
+        });
     
         it("should get message", () => {
-            $httpBackend.whenGET("data.json").respond(200);                
-            $rootScope.$digest();        
+            spyOn(UserService, 'getAll').and.callThrough();
+            UserService.getAll();
+            expect(UserService.getAll).toHaveBeenCalled();
+           
         });
     });
-    

@@ -1,4 +1,4 @@
- describe("CustomFilter", () => {
+describe("CustomFilter", () => {
     
             var $filter : ng.IFilterService;
     
@@ -14,8 +14,4 @@
                 var startFrom = $filter('startFrom');
                 expect(startFrom).toBeDefined();
             });
-    
-            it("should add up prices", () => {
-                var sumFilter = $filter('startFrom');
-            });
-})        
+})

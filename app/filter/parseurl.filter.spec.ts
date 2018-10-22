@@ -19,4 +19,4 @@ describe("ParseUrl", () => {
         var sumFilter = $filter('parseUrl');
         expect(sumFilter).not.toBeNull();
     });
-})        
+})

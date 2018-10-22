@@ -1,13 +1,13 @@
-import { UserService } from '../app/services/user.services';
+import { UserService } from '../service/user.services';
 
 class UserController implements ng.IController {
-    static $inject = ['userService', '$filter'];
+    static $inject = ['userService', '$filter', '$sce'];
     users: any;
     currentPage = 0;
-    pageSize = 5;
+    pageSize = 10;
     searchText = '';
 
-    constructor(public user: UserService, public filter: any) {
+    constructor(public user: UserService, public filter: any, public $sce: any) {
         this.users = this.user.getAll();
         this.pageSize = this.pageSize;
     }
@@ -21,7 +21,11 @@ class UserController implements ng.IController {
     }
 
     getNumber() {
-        return new Array(this.getData().length / this.pageSize);
+        return new Array(Math.ceil(this.getData().length / this.pageSize));
+    }
+
+    to_trusted(text) {
+        return this.$sce.trustAsHtml(text);
     }
 }
 

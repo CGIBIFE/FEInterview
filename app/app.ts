@@ -1,10 +1,11 @@
 import { module, element, bootstrap, ILogService } from 'angular';
 import '@uirouter/angularjs';
-import { UserComponent } from '../app/app.component';
-import { UserService } from '../app/services/user.services';
+import { UserComponent } from '../app/component/app.component';
+import { UserService } from '../app/service/user.services';
 import { CustomFilter } from '../app/filter/user.filter';
+import { ParseUrl } from '../app/filter/parseurl.filter';
 
-import './app.less';
+import './sass/app.less';
 
 export let app = module('app', [
     'ui.router'
@@ -20,7 +21,8 @@ export let app = module('app', [
     }])
     .component(UserComponent.NAME, new UserComponent())
     .service(UserService.NAME, UserService)
-    .filter('startFrom', [CustomFilter.Factory]);
+    .filter('startFrom', [CustomFilter.Factory])
+    .filter('parseUrl', [ParseUrl.Factory]);
 element(document).ready(() => {
     bootstrap(document, ['app']);
 });

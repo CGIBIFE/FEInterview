@@ -1,5 +1,5 @@
 
-export class CustomFilter {    
+export class CustomFilter { 
     static NAME: string = 'userFilter';
     public static Factory() {
         return (input: any, start: any) => {

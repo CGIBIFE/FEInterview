@@ -39,28 +39,28 @@
             expect(ctrl.users).toEqual(stub);
         });
 
-        it('numberOfPages method should be called', () => {
+        it('getNumberOfPages method should be called', () => {
             const ctrl = createController();
-            spyOn(ctrl, 'numberOfPages').and.callThrough();
-            ctrl.numberOfPages();
+            spyOn(ctrl, 'getNumberOfPages').and.callThrough();
+            ctrl.getNumberOfPages();
             $rootScope.$apply();
-            expect(ctrl.numberOfPages).toHaveBeenCalled();
+            expect(ctrl.getNumberOfPages).toHaveBeenCalled();
         });
 
-        it('getNumber method should be triggered', () => {
+        it('getPageNumber method should be triggered', () => {
             const ctrl = createController();
-            spyOn(ctrl, 'getNumber').and.callThrough();
-            ctrl.numberOfPages();
+            spyOn(ctrl, 'getPageNumber').and.callThrough();
+            ctrl.getPageNumber();
             $rootScope.$apply();
-            expect(ctrl.getNumber).toHaveBeenCalled();
+            expect(ctrl.getPageNumber).toHaveBeenCalled();
         });
 
-        it('to_trusted method should be triggered', () => {
+        it('convertTrusted method should be triggered', () => {
             const ctrl = createController();
-            spyOn(ctrl, 'to_trusted').and.callThrough();
-            ctrl.to_trusted('<span>html bind</span>');
+            spyOn(ctrl, 'convertTrusted').and.callThrough();
+            ctrl.convertTrusted('<span>html bind</span>');
             $rootScope.$apply();
-            expect(ctrl.to_trusted).toEqual('html bind');;
+            expect(ctrl.convertTrusted).toEqual('html bind');;
         });
     });
 });

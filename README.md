@@ -46,7 +46,6 @@ Please go through the storyboard for more detail on code test
 ## Run in browser
     * npm start - To build and run on browser
     * npm test  - Jasmine test
-    * Note - During runtime sometime I faced the buildwebpack cli issue in my issue. If you faced the same please replace and use the webpack cli dependecy folder available in GIT
 
 ## Things to Highlight
     * Developed using Typescript, Angular 1.6 component support moving towards Angular 2, Web Components
@@ -56,6 +55,7 @@ Please go through the storyboard for more detail on code test
     * Angular Filters, Services, Components are used
     * tslint configured
     * SASS-LESS used for css
+    * Screenshot added for Jamsine coverage, Responsive design, website page
 
     This project is licensed under CGI B&I 
 

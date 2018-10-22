@@ -6,10 +6,5 @@
       "module": "commonjs",
       "target": "es5",
       "allowJs": true
-      /*"types" : [
-        "angular",
-        "angular-mocks",
-        "jasmine"
-    ]*/
   }
 }

@@ -16,15 +16,15 @@ export class UserController implements ng.IController {
         return this.filter('filter')(this.users, this.searchText);
     }
 
-    numberOfPages() {
+    getNumberOfPages() {
         return Math.ceil(this.getData().length / this.pageSize);
     }
 
-    getNumber() {
+    getPageNumber() {
         return new Array(Math.ceil(this.getData().length / this.pageSize));
     }
 
-    to_trusted(text) {
+    convertTrusted(text) {
         return this.$sce.trustAsHtml(text);
     }
 }

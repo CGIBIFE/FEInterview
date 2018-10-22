@@ -1,25 +1,25 @@
-<div id="twitter-container">
-    <div id="twitter-container__content">
-        <div id="twitter-container__innercontent">
-            <div id="twitter-container__innercontent-text" ng-repeat="user in $ctrl.users | filter:searchText | startFrom:$ctrl.currentPage*$ctrl.pageSize | limitTo:pageSize">
+<div class="twitter-container">
+    <div class="twitter-container__content">
+        <div class="twitter-container__innercontent">
+            <div class="twitter-container__innercontent-text" ng-repeat="user in $ctrl.users | filter:searchText | startFrom:$ctrl.currentPage*$ctrl.pageSize | limitTo:pageSize">
                 <div class="twitter-container__card-container" ng-if="user.retweeted_status.text">
                     <p class="twitter-container__card-container-content">{{user.entities.user_mentions[0].name}} <span class="twitter-container__retweet" ng-if="user.retweeted_status.text">Retweeted</span>
                     </p>
                     <div class="twitter-container__card-container-innercontent">
-                        <p class="twitter-container__card-container-child"></p><img class="twitter-container__profile-align" src="{{user.user.profile_image_url}}" alt="Profile"
+                        <p class="twitter-container__card-container-text"></p><img class="twitter-container__profile-align" src="{{user.user.profile_image_url}}" alt="Profile"
                             width="42" height="42" align="left"> {{user.user.name}} (@{{user.user.screen_name}})
                         </p>
-                        <p class="twitter-container__card-container-child2" ng-bind-html="$ctrl.to_trusted(user.retweeted_status.text | parseUrl)">
+                        <p class="twitter-container__card-container-textcontent" ng-bind-html="$ctrl.convertTrusted(user.retweeted_status.text | parseUrl)">
                         </p>
                     </div>
                 </div>
                 <div class="twitter-container__card-container" ng-if="!user.retweeted_status.text && tweetType === 'All tweets'">
                     <p ng-hide></p>
                     <div class="twitter-container__card-container-innercontent">
-                        <p class="twitter-container__card-container-child"><img class="twitter-container__profile-align" src="{{user.user.profile_image_url}}" alt="Profile"
+                        <p class="twitter-container__card-container-text"><img class="twitter-container__profile-align" src="{{user.user.profile_image_url}}" alt="Profile"
                                 width="42" height="42" align="left"> {{user.user.name}} (@{{user.user.screen_name}})
                         </p>
-                        <p class="twitter-container__card-container-child2" ng-bind-html="$ctrl.to_trusted(user.text | parseUrl)">
+                        <p class="twitter-container__card-container-textcontent" ng-bind-html="$ctrl.convertTrusted(user.text | parseUrl)">
                         </p>
                     </div>
                 </div>
@@ -27,8 +27,8 @@
             <p class="twitter-container__no-items">No twitter feeds available for this filter</p>
         </div>
     </div>
-    <div id="twitter-container__navbar">
-        <div id="twitter-container__innernavbar">
+    <div class="twitter-container__navbar">
+        <div class="twitter-container__innernavbar">
             <h5>
                 Tweet Filters
             </h5>
@@ -52,10 +52,11 @@
 
             <p>Pages</p>
             <div class="pagination">
-                    <a id="pagination" href="#" ng-disabled="$ctrl.currentPage === 0"  ng-repeat="a in $ctrl.getNumber($ctrl.numberOfPages()) track by $index" ng-click="!$last ? $ctrl.currentPage=currentPage+1 : $ctrl.currentPage=currentPage-1;active=!active" ng-class="{'active': active}">
+                <a id="pagination" href="#" ng-disabled="$ctrl.currentPage === 0" ng-repeat="a in $ctrl.getPageNumber($ctrl.getNumberOfPages()) track by $index"
+                    ng-click="!$last ? $ctrl.currentPage=currentPage+1 : $ctrl.currentPage=currentPage-1;active=!active" ng-class="{'active': active}">
                             {{$index+1}}
                     </a>
-                </div>
+            </div>
         </div>
     </div>
 </div>

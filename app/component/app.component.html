@@ -1,33 +1,34 @@
-<div id="container">
-    <div id="content">
-        <div id="innercontent">
-            <div id="innercontent__text" ng-repeat="user in $ctrl.users | filter:searchText | limitTo:pageSize" style="border-bottom: 1px solid #ccc;">
-                <div class="card-container" ng-if="user.retweeted_status.text">
-                    <p style="font-weight:bold;font-size:10px;">{{user.entities.user_mentions[0].name}}<span style="margin-left:8px;font-weight:normal;" ng-if="user.retweeted_status.text">Retweeted</span></p>
-                    <div style="padding: 10px;background: #fff; border-radius: 5px;">
-                        <p style="font-weight:bold;"><img class="profile-align" src="{{user.user.profile_image_url}}" alt="Profile" width="42" height="42"
-                                align="left"> {{user.user.name}} (@{{user.user.screen_name}})
+<div id="twitter-container">
+    <div id="twitter-container__content">
+        <div id="twitter-container__innercontent">
+            <div id="twitter-container__innercontent-text" ng-repeat="user in $ctrl.users | filter:searchText | startFrom:$ctrl.currentPage*$ctrl.pageSize | limitTo:pageSize">
+                <div class="twitter-container__card-container" ng-if="user.retweeted_status.text">
+                    <p class="twitter-container__card-container-content">{{user.entities.user_mentions[0].name}} <span class="twitter-container__retweet" ng-if="user.retweeted_status.text">Retweeted</span>
+                    </p>
+                    <div class="twitter-container__card-container-innercontent">
+                        <p class="twitter-container__card-container-child"></p><img class="twitter-container__profile-align" src="{{user.user.profile_image_url}}" alt="Profile"
+                            width="42" height="42" align="left"> {{user.user.name}} (@{{user.user.screen_name}})
                         </p>
-                        <p style="margin-left: 44px;" ng-bind-html="$ctrl.to_trusted(user.retweeted_status.text | parseUrl)">
+                        <p class="twitter-container__card-container-child2" ng-bind-html="$ctrl.to_trusted(user.retweeted_status.text | parseUrl)">
                         </p>
                     </div>
                 </div>
-                <div class="card-container" ng-if="!user.retweeted_status.text && tweetType === 'All tweets'">
-                        <p ng-hide></p>
-                        <div style="padding: 10px;background: #fff; border-radius: 5px;">
-                            <p style="font-weight:bold;"><img class="profile-align" src="{{user.user.profile_image_url}}" alt="Profile" width="42" height="42"
-                                    align="left"> {{user.user.name}} (@{{user.user.screen_name}})
-                            </p>
-                            <p style="margin-left: 44px;" ng-bind-html="$ctrl.to_trusted(user.text | parseUrl)">
-                            </p>
-                        </div>
+                <div class="twitter-container__card-container" ng-if="!user.retweeted_status.text && tweetType === 'All tweets'">
+                    <p ng-hide></p>
+                    <div class="twitter-container__card-container-innercontent">
+                        <p class="twitter-container__card-container-child"><img class="twitter-container__profile-align" src="{{user.user.profile_image_url}}" alt="Profile"
+                                width="42" height="42" align="left"> {{user.user.name}} (@{{user.user.screen_name}})
+                        </p>
+                        <p class="twitter-container__card-container-child2" ng-bind-html="$ctrl.to_trusted(user.text | parseUrl)">
+                        </p>
+                    </div>
                 </div>
             </div>
-            <p class="no-items">No twitter feeds available for this filter</p>
+            <p class="twitter-container__no-items">No twitter feeds available for this filter</p>
         </div>
     </div>
-    <div id="navbar">
-        <div id="innernavbar">
+    <div id="twitter-container__navbar">
+        <div id="twitter-container__innernavbar">
             <h5>
                 Tweet Filters
             </h5>
@@ -51,23 +52,10 @@
 
             <p>Pages</p>
             <div class="pagination">
-                <!--a ng-disabled="$ctrl.currentPage == 0" ng-click="$ctrl.currentPage=currentPage-1">&laquo;</a-->
-                {{$ctrl.numberOfPages()}} -- {{$ctrl.getNumber($ctrl.numberOfPages()) }} {{$ctrl.currentPage=$ctrl.currentPage+1}}
-                <a href="#" ng-click="$ctrl.currentPage=$ctrl.currentPage+1">
-                        {{$index}}
-                </a> `
-                <!--a href="#" class="active">2</a-->
-                <!--a ng-disabled="$ctrl.currentPage >= $ctrl.getData().length/$ctrl.pageSize - 1" ng-click="$ctrl.currentPage=$ctrl.currentPage+1">&raquo;</a-->
-            </div>
-
-            <!--button ng-disabled="$ctrl.currentPage == 0" ng-click="$ctrl.currentPage=currentPage-1">
-                        Previous
-                </button>
-                    {{$ctrl.currentPage+1}}/{{$ctrl.numberOfPages()}}
-                <button ng-disabled="$ctrl.currentPage >= $ctrl.getData().length/$ctrl.pageSize - 1" ng-click="$ctrl.currentPage=$ctrl.currentPage+1">
-                        Next
-                </button-->
-
+                    <a id="pagination" href="#" ng-disabled="$ctrl.currentPage == 0"  ng-repeat="a in $ctrl.getNumber($ctrl.numberOfPages()) track by $index" ng-click="!$last ? $ctrl.currentPage=currentPage+1 : $ctrl.currentPage=currentPage-1;active=!active" ng-class="{'active': active}">
+                            {{$index+1}}
+                    </a>
+                </div>
         </div>
     </div>
 </div>

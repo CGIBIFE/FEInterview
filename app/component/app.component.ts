@@ -1,12 +1,12 @@
 import { UserService } from '../service/user.services';
 
-class UserController implements ng.IController {
+export class UserController implements ng.IController {
     static $inject = ['userService', '$filter', '$sce'];
     users: any;
     currentPage = 0;
     pageSize = 10;
     searchText = '';
-
+    /*istanbul ignore next*/
     constructor(public user: UserService, public filter: any, public $sce: any) {
         this.users = this.user.getAll();
         this.pageSize = this.pageSize;

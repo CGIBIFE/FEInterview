@@ -52,7 +52,7 @@
 
             <p>Pages</p>
             <div class="pagination">
-                    <a id="pagination" href="#" ng-disabled="$ctrl.currentPage == 0"  ng-repeat="a in $ctrl.getNumber($ctrl.numberOfPages()) track by $index" ng-click="!$last ? $ctrl.currentPage=currentPage+1 : $ctrl.currentPage=currentPage-1;active=!active" ng-class="{'active': active}">
+                    <a id="pagination" href="#" ng-disabled="$ctrl.currentPage === 0"  ng-repeat="a in $ctrl.getNumber($ctrl.numberOfPages()) track by $index" ng-click="!$last ? $ctrl.currentPage=currentPage+1 : $ctrl.currentPage=currentPage-1;active=!active" ng-class="{'active': active}">
                             {{$index+1}}
                     </a>
                 </div>

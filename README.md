@@ -29,7 +29,34 @@ Please go through the storyboard for more detail on code test
     
     
  ## License
-    
+
+ ## Implementation updates
+    * Search box to find specific user's tweet - Done
+    * Filter to Retweeted tweeets - Done
+    * Post per page / Relavent pagination - Done
+    * All @handles should be clickage with live linkgs - Need to done
+    * Retweets and tweets should be visually differentiable - Done
+    * Tweeter users profile pic should be show as part of tweet - Done
+    * Should be responsive for all screens from Mobile Tab - Done
+## Delivery expectation:
+    *Should be deployable package - Yes used webpack to make it as bundle. Need to deploy on hereoku. 
+    * Unit test is 70% coverage & branch - Done and coverage folder generated during test. 2 test cases are getting failed. Working on it. 
+    * PR - Done
+
+## Run in browser
+    * npm start - To build and run on browser
+    * npm test  - Jasmine test
+    * Note - During runtime sometime I faced the buildwebpack cli issue in my issue. If you faced the same please replace and use the webpack cli dependecy folder available in GIT
+
+## Things to Highlight
+    * Developed using Typescript, Angular 1.6 component support moving towards Angular 2, Web Components
+    * WebPack configured to get the deployable version
+    * Jasmine/Karma configured
+    * Responsive web design using fluid media query used for mobile, tab and browsers
+    * Angular Filters, Services, Components are used
+    * tslint configured
+    * SASS-LESS used for css
+
     This project is licensed under CGI B&I 
 
       

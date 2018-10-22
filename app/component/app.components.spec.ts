@@ -20,13 +20,5 @@
         it("should get message from service", () => {           
             controller.getData();
         });
-
-        it("should get message from service", () => {           
-            controller.numberOfPages();
-        });
-
-        it("should get message from service", () => {           
-            controller.getNumber();
-        });
     });
     

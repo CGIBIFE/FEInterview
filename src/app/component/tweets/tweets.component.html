@@ -1,1 +1,36 @@
-<p>tweets works!</p>
+
+
+
+
+<div class="twitter-container">
+    
+    <div class="twitter-container__navbar">
+        <div class="twitter-container__innernavbar">
+            <h5>
+                Tweet Filters
+            </h5>
+            <input type="search" placeholder="@nameHandle or name"  />
+
+            <h5>Show Only</h5>
+            <div ng-init="tweetType='All tweets'">
+                <input type="radio" ng-model='tweetType' id="alltweet" name="tweet" value="All tweets" />
+                <label for="alltweets">All tweets</label>
+            </div>
+            <div>
+                <input type="radio"  id="retweet" name="tweet" value="Retweeted tweets" />
+                <label for="Retweeted">Retweeted tweets</label>
+            </div>
+
+            <h5>Number post/page</h5>
+            <div>
+                <label for="post" class="inline-label">No.of post per page: </label>
+                <input type="text" id="post"/>
+            </div>
+
+            <p>Pages: </p>
+            <div class="pagination">
+                
+            </div>
+        </div>
+    </div>
+</div>

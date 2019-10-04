@@ -1,9 +1,14 @@
+# ChangeLog :
+
+ a) Basic setup for angular 8 project is ready for twitter-feeds
+
+
 # FEInterview
 Best of luck for success. 
 Please go through the storyboard for more detail on code test
 
 # StoryBoard
-    The objective of this application is creating UI for tweeter feed from 
+    The objective of this application is creating UI for twitter feed from 
     JSON which is part of this Repo, Please create your own copy of 
     this repo by 'Forking' it.
  
@@ -19,7 +24,7 @@ Please go through the storyboard for more detail on code test
     * Post per page / Relavent pagination
     * All' @handels' should be clickable with live links
     * Retweets and tweets should be visually differentiable 
-    * Tweeter users profile pic should be shown as part of the tweet
+    * Twitter users profile pic should be shown as part of the tweet
     * Should be responsive for all screens from Mobile Tab Desktop screen
     
 ### Delivery expectation:

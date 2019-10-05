@@ -18,7 +18,7 @@ describe('TweetsService', () => {
     expect(service).toBeTruthy();
   });
 
-  it("should get all tweets", () => {
+  it('should get all tweets', () => {
     spyOn(service, 'getAllTweets').and.callThrough();
     service.getAllTweets();
     expect(service.getAllTweets).toHaveBeenCalled();

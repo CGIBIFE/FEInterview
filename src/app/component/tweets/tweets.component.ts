@@ -20,30 +20,26 @@ export class TweetsComponent implements OnInit {
 
   constructor(private tweetsService: TweetsService, private sanitized: DomSanitizer, private filter: Ng2SearchPipe) {
     this.tweets = this.tweetsService.getAllTweets();
-    this.pageNumbers = this.getCurrentPageNumber();
+    this.pageNumbers = this.getCurrentPageNumbers();
   }
 
   ngOnInit() {
-    this.tweetType ='All tweets';
+    this.tweetType = 'All tweets';
   }
 
   getFilteredData() {
     return this.filter.transform(this.tweets, this.searchText);
   }
 
-  // getTotalNumberOfPages() {
-  //     return Math.ceil(this.getFilteredData().length / this.pageSize);
-  // }
-
-  getCurrentPageNumber() {
+  getCurrentPageNumbers() {
       return new Array(Math.ceil(this.getFilteredData().length / this.pageSize));
   }
 
   allowTrusted(text) {
     return this.sanitized.bypassSecurityTrustHtml(text);
   }
-  
+
   toggleClass(index) {
       this.selectedIndex = index;
-  };
+  }
 }

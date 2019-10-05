@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppComponent } from './app.component';
 import { TweetsComponent } from './component/tweets/tweets.component';
+import { ParseurlPipe } from './pipe/parseurl.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TweetsComponent
+    TweetsComponent,
+    ParseurlPipe
   ],
   imports: [
     BrowserModule,

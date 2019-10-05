@@ -10,7 +10,7 @@
                         <img class="twitter-container__profile-align" src="{{tweet.user.profile_image_url}}" alt="Profile"
                             width="42px" height="42px" align="left"> {{tweet.user.name}} (@{{tweet.user.screen_name}})
                         </p>
-                        <p class="twitter-container__card-container-textcontent" [innerHtml]="allowTrusted(tweet.retweeted_status.text)">
+                        <p class="twitter-container__card-container-textcontent" [innerHtml]="allowTrusted(tweet.retweeted_status.text | parseurl)">
                         </p>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                         <p class="twitter-container__card-container-text"><img class="twitter-container__profile-align" src="{{tweet.user.profile_image_url}}" alt="Profile"
                                 width="42px" height="42px" align="left"> {{tweet.user.name}} (@{{tweet.user.screen_name}})
                         </p>
-                        <p class="twitter-container__card-container-textcontent" [innerHtml]="allowTrusted(tweet.text)">
+                        <p class="twitter-container__card-container-textcontent" [innerHtml]="allowTrusted(tweet.text | parseurl)">
                         </p>
                     </div>
                 </div>

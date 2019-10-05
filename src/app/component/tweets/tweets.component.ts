@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser'
+import { DomSanitizer } from '@angular/platform-browser';
+import { Ng2SearchPipe  } from 'ng2-search-filter';
 import { TweetsService } from '../../service/tweets.service';
 
 @Component({
   selector: 'app-tweets',
   templateUrl: './tweets.component.html',
-  styleUrls: ['./tweets.component.css']
+  styleUrls: ['./tweets.component.css'],
+  providers: [Ng2SearchPipe]
 })
 export class TweetsComponent implements OnInit {
   tweets: any;
@@ -16,7 +18,7 @@ export class TweetsComponent implements OnInit {
   selectedIndex = 0;
   pageNumbers: any;
 
-  constructor(private tweetsService: TweetsService, private sanitized: DomSanitizer) {
+  constructor(private tweetsService: TweetsService, private sanitized: DomSanitizer, private filter: Ng2SearchPipe) {
     this.tweets = this.tweetsService.getAllTweets();
     this.pageNumbers = this.getCurrentPageNumber();
   }
@@ -26,8 +28,7 @@ export class TweetsComponent implements OnInit {
   }
 
   getFilteredData() {
-    // return this.filter('filter')(this.tweets, this.searchText);
-    return this.tweets;
+    return this.filter.transform(this.tweets, this.searchText);
   }
 
   // getTotalNumberOfPages() {

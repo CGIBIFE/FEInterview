@@ -8,6 +8,10 @@ import { TweetsService } from '../../service/tweets.service';
 })
 export class TweetsComponent implements OnInit {
   tweets: any;
+  currentPage = 0;
+  pageSize = 10;
+  searchText = '';
+  selectedIndex = 0;
 
   constructor(private tweetsService: TweetsService) {
     this.tweets = this.tweetsService.getAllTweets();

@@ -1,7 +1,7 @@
 <div class="twitter-container">
     <div class="twitter-container__content">
         <div class="twitter-container__innercontent">
-            <div class="twitter-container__innercontent-text" *ngFor="let tweet of tweets">
+            <div class="twitter-container__innercontent-text" *ngFor="let tweet of tweets | filter:searchText | slice:currentPage*pageSize:pageSize">
                 <div class="twitter-container__card-container" *ngIf="tweet.retweeted_status && tweet.retweeted_status.text">
                     <p class="twitter-container__card-container-content">{{tweet.entities.user_mentions[0].name}} <span class="twitter-container__retweet" *ngIf="tweet.retweeted_status.text">Retweeted</span>
                     </p>
@@ -10,17 +10,16 @@
                         <img class="twitter-container__profile-align" src="{{tweet.user.profile_image_url}}" alt="Profile"
                             width="42px" height="42px" align="left"> {{tweet.user.name}} (@{{tweet.user.screen_name}})
                         </p>
-                        <p class="twitter-container__card-container-textcontent" >{{tweet.retweeted_status.text}}
+                        <p class="twitter-container__card-container-textcontent" [innerHtml]="allowTrusted(tweet.retweeted_status.text)">
                         </p>
                     </div>
                 </div>
-                <div class="twitter-container__card-container" *ngIf="tweet.retweeted_status && !tweet.retweeted_status.text && tweetType === 'All tweets'">
-                    <p ng-hide></p>
+                <div class="twitter-container__card-container" *ngIf="!tweet.retweeted_status && tweetType === 'All tweets'">
                     <div class="twitter-container__card-container-innercontent">
                         <p class="twitter-container__card-container-text"><img class="twitter-container__profile-align" src="{{tweet.user.profile_image_url}}" alt="Profile"
                                 width="42px" height="42px" align="left"> {{tweet.user.name}} (@{{tweet.user.screen_name}})
                         </p>
-                        <p class="twitter-container__card-container-textcontent"> {{tweet.text}}
+                        <p class="twitter-container__card-container-textcontent" [innerHtml]="allowTrusted(tweet.text)">
                         </p>
                     </div>
                 </div>
@@ -36,7 +35,7 @@
             <input type="search" placeholder="@nameHandle or name" [(ngModel)]='searchText' />
 
             <h5>Show Only</h5>
-            <div ng-init="tweetType='All tweets'">
+            <div>
                 <input type="radio" [(ngModel)]='tweetType' id="alltweet" name="tweet" value="All tweets" />
                 <label for="alltweets">All tweets</label>
             </div>
@@ -48,12 +47,15 @@
             <h5>Number post/page</h5>
             <div>
                 <label for="post" class="inline-label">No.of post per page: </label>
-                <input type="text" id="post" [(ngModel)]='pageSize' ng-init="pageSize=pageSize" />
+                <input type="text" id="post" [(ngModel)]='pageSize' />
             </div>
 
             <p>Pages: </p>
             <div class="pagination">
-               
+                <a id="pagination" disabled="currentPage === 0" href="#" *ngFor="let page of pageNumbers;index as i; last as isLast"
+                (click)="(!isLast ? currentPage=currentPage+1 : currentPage=currentPage-1);toggleClass(i)" [ngClass]="{'active': i === selectedIndex}">
+                {{i+1}}
+                </a>
             </div>
         </div>
     </div>

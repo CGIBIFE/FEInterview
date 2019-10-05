@@ -22,7 +22,10 @@ h2 {
     width: 80%;
     margin: 0 auto;
 }
-
+.twitter-container__content {
+    float: right;
+    width: 70%;
+}
 .twitter-container__navbar {
     float: right;
     width: 26%;
@@ -73,6 +76,12 @@ h2 {
     padding-right: 5px;
     font-size: 1.1em;
 }
+.twitter-container__innercontent-text {
+    border-bottom: 1px solid #ccc;
+}
+.twitter-container__innercontent-text + .twitter-container__no-items {
+    display: none;
+}
 .twitter-container__no-items {
     text-align: center;
 }
@@ -89,7 +98,20 @@ input[type=search] {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+.pagination {
+    display: inline-block;
+}
+.pagination a {
+    float: left;
+    text-decoration: none;
+    width: 21px;
+    color: #000;
+    border-radius: 50%;
+    background-color: #CFDAE7;
+    text-align: center;
+    margin: 4px;
+    padding: 4px;
+}
 .active {
     background-color: #385F80 !important;
     color: white;

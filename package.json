@@ -13,6 +13,7 @@
   "dependencies": {
     "@angular/animations": "~8.2.9",
     "@angular/common": "~8.2.9",
+    "ng2-search-filter": "0.4.7",
     "@angular/compiler": "~8.2.9",
     "@angular/core": "~8.2.9",
     "@angular/forms": "~8.2.9",

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Ng2SearchPipe  } from 'ng2-search-filter';
 import { TweetsService } from '../../service/tweets.service';
@@ -18,7 +18,7 @@ export class TweetsComponent implements OnInit {
   selectedIndex = 0;
   pageNumbers: any;
 
-  constructor(private tweetsService: TweetsService, private sanitized: DomSanitizer, private filter: Ng2SearchPipe) {
+  constructor(@Inject(TweetsService)private tweetsService: TweetsService, private sanitized: DomSanitizer, private filter: Ng2SearchPipe) {
     this.tweets = this.tweetsService.getAllTweets();
     this.pageNumbers = this.getCurrentPageNumbers();
   }

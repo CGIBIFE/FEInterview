@@ -70,4 +70,20 @@ describe('TweetsComponent', () => {
       tweetsComponent.allowTrusted('Hello i am<hr>Mark');
       expect(tweetsComponent.allowTrusted).toHaveBeenCalled();
   });
+
+  it('test toggle method', () => {
+    spyOn(tweetsComponent, 'toggleClass').and.callThrough();
+    fixture.detectChanges();
+    tweetsComponent.toggleClass(3);
+    expect(tweetsComponent.toggleClass).toHaveBeenCalled();
+    expect(tweetsComponent.endAt).not.toBeNull();
+  });
+
+  it('test toggle method with second condition', () => {
+    spyOn(tweetsComponent, 'toggleClass').and.callThrough();
+    fixture.detectChanges();
+    tweetsComponent.toggleClass(0);
+    expect(tweetsComponent.toggleClass).toHaveBeenCalled();
+    expect(tweetsComponent.endAt).not.toBeNull();
+  });
 });

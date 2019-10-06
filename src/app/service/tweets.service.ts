@@ -7,7 +7,9 @@ import { Injectable } from '@angular/core';
 export class TweetsService {
 
   constructor() { }
-
+  /*
+  This method will get all teh data from the json.
+  */
   public getAllTweets() {
     return tweetsData;
   }

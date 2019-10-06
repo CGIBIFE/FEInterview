@@ -17,10 +17,12 @@ export class TweetsComponent implements OnInit {
   tweetType = '';
   selectedIndex = 0;
   pageNumbers: any;
+  startfrom = 0;
+  endAt = this.pageSize - 1;
 
   constructor(@Inject(TweetsService)private tweetsService: TweetsService, private sanitized: DomSanitizer, private filter: Ng2SearchPipe) {
     this.tweets = this.tweetsService.getAllTweets();
-    this.pageNumbers = this.getCurrentPageNumbers();
+    this.getCurrentPageNumbers();
   }
 
   ngOnInit() {
@@ -32,7 +34,9 @@ export class TweetsComponent implements OnInit {
   }
 
   getCurrentPageNumbers() {
-      return new Array(Math.ceil(this.getFilteredData().length / this.pageSize));
+    if (Number(this.pageSize) !== 0) {
+      this.pageNumbers = new Array(Math.ceil(this.getFilteredData().length / Number(this.pageSize)));
+    }
   }
 
   allowTrusted(text) {
@@ -41,5 +45,8 @@ export class TweetsComponent implements OnInit {
 
   toggleClass(index) {
       this.selectedIndex = index;
+      this.startfrom = (this.selectedIndex) * Number(this.pageSize);
+      const end =  this.startfrom + (Number(this.pageSize));
+      this.endAt = this.getFilteredData().length > end ? end : this.getFilteredData().length ;
   }
 }

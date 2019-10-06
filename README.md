@@ -9,21 +9,21 @@
 
     * Search box to find specific user's tweet - Complete
     * Filter to Retweeted tweeets - Complete
-    * Post per page / Relavent pagination - Complete
+    * Post per page / Relavent pagination - Complete (Pagination can be improve not working for couple of scenarios with filter and     search text together.)
     * All @handles should be clickage with live linkgs - Complete
     * Retweets and tweets should be visually differentiable - Complete
     * Tweeter users profile pic should be show as part of tweet - Complete
     * Should be responsive for all screens from Mobile Tab - Complete
 ## Delivery expectation:
-    *Should be deployable package - Webpack bundling is complete, files are avialble in folder Yes used webpack to make it as bundle. Deploy files are available as part Heorku folder. 
+    *Should be deployable package - Webpack bundling is complete, files are avialble in folder Yes used webpack to make it as bundle. Deploy files are available as part heorku folder. and live available on http://fillmygapsqa.000webhostapp.com/.
     * Unit test is 70% coverage & branch - Complete, files are available in test-coverage-folder.
     * PR - Complete
 
 ## Run the app
     * npm start - to run on browser http://localhost:8080/
     * npm test  - karma Jasmine test
-    * npm build-dev  - building dev build
-    * npm build-prod  - to puild prod build
+    * npm run build-dev  - building dev build
+    * npm run build-prod  - to puild prod build
     * npm lint  - to run linting
 
 

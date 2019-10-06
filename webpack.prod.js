@@ -1,10 +1,10 @@
 const { resolve } = require('path');
+const webpack = require('webpack');
 const rxPaths = require('rxjs/_esm5/path-mapping');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const { CleanCssWebpackPlugin } = require('@angular-devkit/build-angular/src/angular-cli-files/plugins/cleancss-webpack-plugin');
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 const { IndexHtmlWebpackPlugin } = require('@angular-devkit/build-angular/src/angular-cli-files/plugins/index-html-webpack-plugin');
@@ -162,6 +162,10 @@ module.exports = {
       hostReplacementPaths: {
         [resolve('src/environments/environment.ts')]: resolve('src/environments/environment.prod.ts')
       }
+    }),
+    new webpack.DefinePlugin({
+      ngDevMode: false,
+      ngI18nClosureMode: false
     }),
 
     new MiniCssExtractPlugin({ filename: '[name].css' }),

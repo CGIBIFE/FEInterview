@@ -1,6 +1,6 @@
 {
   "name": "twitter-feeds",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "scripts": {
     "start": "webpack-dev-server  --env=dev --config webpack.config.js",
     "build-dev": "webpack --env=dev --mode development --config webpack.config.js --progress --profile --colors",

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/app/pipe/parseurl.pipe.ts</title>
+    <title>Code coverage report for src/app/pipe/hanlder.pipe.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\..\base.css" />
@@ -16,35 +16,35 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/app/pipe</a> parseurl.pipe.ts
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/app/pipe</a> hanlder.pipe.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">20% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>2/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>0/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">11.11% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>1/9</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -66,10 +66,7 @@
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -77,51 +74,45 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">65x</span>
-<span class="cline-any cline-yes">65x</span>
-<span class="cline-any cline-yes">65x</span>
-<span class="cline-any cline-yes">65x</span>
-<span class="cline-any cline-yes">65x</span>
-<span class="cline-any cline-yes">65x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Pipe, PipeTransform } from '@angular/core';
 &nbsp;
 @Pipe({
-  name: 'parseurl'
+  name: 'hanlder'
 })
-export class ParseurlPipe implements PipeTransform {
+export class HanlderPipe implements PipeTransform {
 &nbsp;
-  transform(text: any): any {
-    const urls = /(\b(https?|http):\/\/[A-Z0-9+&amp;@#\/%?=~_|!:,.;-]*[-A-Z0-9+&amp;@#\/%=~_|])/gim;
-    if (text.match( urls )) {
-      let exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&amp;@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;@#\/%=~_|])/gi;
-      text = text.replace(exp, '&lt;a class="action_link" href=\"$1\" target=\"_blank\"&gt;$1&lt;/a&gt;');
-      exp = /(^|\s)#(\w+)/g;
-      text = text.replace(exp, '$1&lt;a class="action_link" href="https://twitter.com/hashtag/$2?src=hash" target="_blank"&gt;#$2&lt;/a&gt;');
-      exp = /(^|\s)@(\w+)/g;
-      text = text.replace(exp, '$1&lt;a class="action_link" href="http://www.twitter.com/$2" target="_blank"&gt;@$2&lt;/a&gt;');
+<span class="fstat-no" title="function not covered" >  transform(</span>text: any): any {
+<span class="cstat-no" title="statement not covered" >    if (text) {</span>
+      let exp = <span class="cstat-no" title="statement not covered" >/(\b(https?|ftp|file):\/\/[-A-Z0-9+&amp;@#\/%?=~_|!:,.;]*[-A-Z0-9+&amp;@#\/%=~_|])/gi;</span>
+<span class="cstat-no" title="statement not covered" >      text = text.replace(exp, '&lt;a href=\"$1\" target=\"_blank\"&gt;$1&lt;/a&gt;');</span>
+<span class="cstat-no" title="statement not covered" >      exp = /(^|\s)#(\w+)/g;</span>
+<span class="cstat-no" title="statement not covered" >      text = text.replace(exp, '$1&lt;a href=\"https://twitter.com/hashtag/$2?src=hash\" target=\"_blank\"&gt;#$2&lt;/a&gt;');</span>
+<span class="cstat-no" title="statement not covered" >      exp = /(^|\s)@(\w+)/g;</span>
+<span class="cstat-no" title="statement not covered" >      text = text.replace(exp, '$1&lt;a href=\"http://www.twitter.com/$2\" target=\"_blank\"&gt;@$2&lt;/a&gt;');</span>
     }
-    return text;
+<span class="cstat-no" title="statement not covered" >    return text;</span>
   }
 &nbsp;
 }
-&nbsp;
-&nbsp;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 06 2019 16:22:58 GMT+0200 (GMT+02:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 06 2019 16:21:28 GMT+0200 (GMT+02:00)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

@@ -6,6 +6,9 @@
     ** Karma jasmine
     ** Implemented with Angular Components, Services, Pipes, css
     ** Responsive
+    ** Out put screenshots are in results folder,
+    ** Deployable package is in heroku
+    ** Deployed on http://fillmygapsqa.000webhostapp.com/
 
     * Search box to find specific user's tweet - Complete
     * Filter to Retweeted tweeets - Complete

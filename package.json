@@ -2,15 +2,12 @@
   "name": "twitter-feeds",
   "version": "0.0.2",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "web_start": "webpack-dev-server  --env=dev --config webpack.config.js",
+    "start": "webpack-dev-server  --env=dev --config webpack.config.js",
     "build-dev": "webpack --env=dev --mode development --config webpack.config.js --progress --profile --colors",
-    "build-prod": "webpack --env=prod --optimize-minimize --mode production --config webpack.config.js --progress --profile --colors"
+    "build-prod": "webpack --env=prod --optimize-minimize --mode production --config webpack.config.js --progress --profile --colors",
+    "ng": "ng",
+    "test": "ng test --code-coverage=true",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +45,7 @@
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
     "karma-chrome-launcher": "~2.2.0",
+    "karma-cli": "^2.0.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
@@ -56,6 +54,7 @@
     "raw-loader": "^3.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^2.1.2",
     "to-string-loader": "^1.1.5",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",

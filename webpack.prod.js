@@ -10,13 +10,11 @@ const { AngularCompilerPlugin } = require('@ngtools/webpack');
 const { IndexHtmlWebpackPlugin } = require('@angular-devkit/build-angular/src/angular-cli-files/plugins/index-html-webpack-plugin');
 const { SuppressExtractedTextChunksWebpackPlugin } = require('@angular-devkit/build-angular/src/angular-cli-files/plugins/suppress-entry-chunks-webpack-plugin');
 const { HashedModuleIdsPlugin } = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
 
   mode: 'production',
-
-  devtool: 'source-map',
-
   entry: {
     main: './src/main.ts',
     polyfills: './src/polyfills.ts',
@@ -48,7 +46,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: '@angular-devkit/build-optimizer/webpack-loader',
-        options: { sourceMap: true }
+        options: { sourceMap: false }
       },
       {
         test: /\.js$/,
@@ -99,6 +97,7 @@ module.exports = {
   optimization: {
     noEmitOnErrors: true,
     runtimeChunk: 'single',
+    minimize: true,
     splitChunks: {
       cacheGroups: {
         default: {
@@ -118,27 +117,26 @@ module.exports = {
       }
     },
     minimizer: [
-      new HashedModuleIdsPlugin(),
-      new UglifyJSPlugin({
-        sourceMap: true,
-        cache: true,
-        parallel: true,
-        uglifyOptions: {
-          safari10: true,
-          output: {
-            ascii_only: true,
-            comments: false,
-            webkit: true,
-          },
-          compress: {
-            pure_getters: true,
-            passes: 3,
-            inline: 3,
-          }
-        }
+      new TerserPlugin({
+        terserOptions: {
+          ecma: undefined,
+          warnings: false,
+          parse: {},
+          compress: {},
+          mangle: true, // Note `mangle.properties` is `false` by default.
+          module: false,
+          output: null,
+          toplevel: false,
+          nameCache: null,
+          ie8: false,
+          keep_classnames: undefined,
+          keep_fnames: false,
+          safari10: false,
+        },
       }),
+      new HashedModuleIdsPlugin(),
       new CleanCssWebpackPlugin({
-        sourceMap: true,
+        sourceMap: false,
         test: (file) => /\.(?:css)$/.test(file),
       })
     ]
@@ -157,7 +155,7 @@ module.exports = {
 
     new AngularCompilerPlugin({
       mainPath: resolve('./src/main.ts'),
-      sourceMap: true,
+      sourceMap: false,
       nameLazyFiles: false,
       tsConfigPath: resolve('./tsconfig.app.json'),
       skipCodeGeneration: false,

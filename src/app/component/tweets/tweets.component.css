@@ -1,0 +1,132 @@
+.twitter-container {
+    width: 80%;
+    margin: 0 auto;
+}
+.twitter-container__content {
+    float: right;
+    width: 70%;
+}
+.twitter-container__navbar {
+    float: right;
+    width: 26%;
+    background: #FFFFFF;
+    margin-right: 3%;
+    border-radius: 5px;
+}
+.twitter-container__innercontent {
+    font-size: 1.1em;
+}
+.twitter-container__profile-align {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.twitter-container__card-container {
+    padding: 2px 20px 20px 20px;
+}
+.twitter-container__card-container-content {
+    font-weight: bold;
+    font-size: 10px;
+    margin-left: 8px;
+}
+.twitter-container__retweet {
+    font-weight: normal;
+}
+.twitter-container__card-container-innercontent {
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+.twitter-container__content {
+    background-color: #E8F0F8;
+    border: 1px solid #A9C4DA;
+    border-radius: 5px;
+}
+.twitter-container__card-container-textcontent {
+    margin-left: 44px;
+}
+
+.twitter-container__card-container-text {
+    font-weight: bold;
+}
+.twitter-container__innernavbar {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1.1em;
+}
+.twitter-container__innercontent-text {
+    border-bottom: 1px solid #ccc;
+}
+.twitter-container__innercontent-text + .twitter-container__no-items {
+    display: none;
+}
+.twitter-container__no-items {
+    text-align: center;
+}
+input[type=search] {
+    border: 1px solid #888686;
+    padding: 4px 11px;
+    border-radius: 15px;
+    -webkit-appearance: none;
+    outline: none;
+    width: 94%;
+    height: 32px;
+    margin-left: 2%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pagination {
+    display: inline-block;
+}
+.pagination a {
+    float: left;
+    text-decoration: none;
+    width: 21px;
+    color: #000;
+    border-radius: 50%;
+    background-color: #CFDAE7;
+    text-align: center;
+    margin: 4px;
+    padding: 4px;
+}
+.active {
+    background-color: #385F80 !important;
+    color: white;
+    border-radius: 50%;
+}
+.inline-label {
+    white-space: nowrap;
+    width: 125px;
+    float: left;
+}
+#post {
+    width: 10%;
+    outline: none;
+    text-align: center;
+}
+@-ms-viewport {
+    width: device-width;
+}
+@viewport {
+    width: device-width;
+}
+@media only screen and (max-width: 629px) {
+    .twitter-container__content {
+        float: none;
+        width: 100%;
+   }
+    .twitter-container__navbar {
+        float: none;
+        width: 100%;
+   }
+    #pagelinkcode {
+        width: 90%;
+   }
+    #switchlayout input {
+        width: 90%;
+   }
+}

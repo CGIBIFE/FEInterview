@@ -1,0 +1,62 @@
+<div class="twitter-container">
+    <div class="twitter-container__content">
+        <div class="twitter-container__innercontent">
+            <div class="twitter-container__innercontent-text" *ngFor="let tweet of tweets | filter:searchText | slice:startfrom:endAt">
+                <div class="twitter-container__card-container" *ngIf="tweet.retweeted_status && tweet.retweeted_status.text">
+                    <p class="twitter-container__card-container-content">{{tweet.entities.user_mentions[0].name}} <span class="twitter-container__retweet" *ngIf="tweet.retweeted_status.text">Retweeted</span>
+                    </p>
+                    <div class="twitter-container__card-container-innercontent">
+                        <p class="twitter-container__card-container-text">
+                        <img class="twitter-container__profile-align" src="{{tweet.user.profile_image_url}}" alt="Profile"
+                            width="42px" height="42px" align="left"> {{tweet.user.name}} (@{{tweet.user.screen_name}})
+                        </p>
+                        <p class="twitter-container__card-container-textcontent" [innerHtml]="allowTrusted(tweet.retweeted_status.text | parseurl)">
+                        </p>
+                    </div>
+                </div>
+                <div class="twitter-container__card-container" *ngIf="!tweet.retweeted_status && tweetType === 'All tweets'">
+                    <div class="twitter-container__card-container-innercontent">
+                        <p class="twitter-container__card-container-text"><img class="twitter-container__profile-align" src="{{tweet.user.profile_image_url}}" alt="Profile"
+                                width="42px" height="42px" align="left"> {{tweet.user.name}} (@{{tweet.user.screen_name}})
+                        </p>
+                        <p class="twitter-container__card-container-textcontent" [innerHtml]="allowTrusted(tweet.text | parseurl)">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p class="twitter-container__no-items">No twitter feeds available for this filter</p>
+        </div>
+    </div>
+    <div class="twitter-container__navbar">
+        <div class="twitter-container__innernavbar">
+            <h5>
+                Tweet Filters
+            </h5>
+            <input type="search" placeholder="@nameHandle or name" [(ngModel)]='searchText' (keyup)="getCurrentPageNumbers()"/>
+
+            <h5>Show Only</h5>
+            <div>
+                <input type="radio" [(ngModel)]='tweetType' id="alltweet" name="tweet" value="All tweets" />
+                <label for="alltweets">All tweets</label>
+            </div>
+            <div>
+                <input type="radio" [(ngModel)]='tweetType' id="retweet" name="tweet" value="Retweeted tweets" />
+                <label for="Retweeted">Retweeted tweets</label>
+            </div>
+
+            <h5>Number post/page</h5>
+            <div>
+                <label for="post" class="inline-label">No.of post per page: </label>
+                <input type="text" id="post" [(ngModel)]='pageSize' (keyup)="getCurrentPageNumbers()"/>
+            </div>
+
+            <p>Pages: </p>
+            <div class="pagination">
+                <a id="pagination"  href="#" *ngFor="let page of pageNumbers;index as i; last as isLast"
+                (click)="(!isLast ? currentPage=currentPage+1 : currentPage=currentPage-1);toggleClass(i)" [ngClass]="{'active': i === selectedIndex}">
+                {{i+1}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

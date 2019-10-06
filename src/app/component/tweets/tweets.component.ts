@@ -29,6 +29,9 @@ export class TweetsComponent implements OnInit {
     this.tweetType = 'All tweets';
   }
 
+  /*
+  This method will filter data based on search parameter
+  */
   getFilteredData() {
     return this.filter.transform(this.tweets, this.searchText);
   }
@@ -39,10 +42,16 @@ export class TweetsComponent implements OnInit {
     }
   }
 
+  /*
+  This method will all text to have html tags
+  */
   allowTrusted(text) {
     return this.sanitized.bypassSecurityTrustHtml(text);
   }
 
+  /*
+  This method will handle pagination and active class on page number
+  */
   toggleClass(index) {
       this.selectedIndex = index;
       this.startfrom = (this.selectedIndex) * Number(this.pageSize);

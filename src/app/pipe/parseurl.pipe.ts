@@ -5,6 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ParseurlPipe implements PipeTransform {
 
+  /*
+  This method will convert all the hanldles into live links
+  */
   transform(text: any): any {
     const urls = /(\b(https?|http):\/\/[A-Z0-9+&@#\/%?=~_|!:,.;-]*[-A-Z0-9+&@#\/%=~_|])/gim;
     if (text.match( urls )) {
